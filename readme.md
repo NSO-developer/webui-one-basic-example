@@ -11,8 +11,8 @@ All the similarity to the Cisco Webui is copied and separated from the Cisco Web
 ## Package contents
 * __webui/webui.json__ Required for the package to be recognised by the new NSO webui and a link to the package webui will be visible on the ApplicationHUB.
 * __webui/index.html__ Required entrypoint for the package webui, where the user will end up when clicking on the link in the ApplicationHUB.
-* __webui/script.js Simple Javascript to peform a request to the NSO JSON-RPC.
-* __webui/style.css CSS Styles.
+* __webui/script.js__ Simple Javascript to peform a request to the NSO JSON-RPC.
+* __webui/style.css__ CSS Styles.
 
 ## Requirements
 * NSO version 4.5+
