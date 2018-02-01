@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">    
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="script.js"></script>
+        <title>Example package with a simple webui</title>
+    </head>
+    <body>
+        <div>
+            <div class="header">
+                <div class="header-inner">
+                    <a href="/webui-one/" class="header-link">
+                        <img src="cisco.svg" alt="Cisco" class="logo" style="">
+                    </a>
+                    <div class="title">
+                        System version <span id="systemVersion"></span> Example Package Application
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <h1>Example package with a simple webui</h1>
+                <p>This is an example package with an example request. 
+                   The version number in the header is fetched from NSO via the JSON-RPC API.</p>
+                <p>More information about the NSO JSON-RPC API is available in the NSO userguide.</p>
+                <p>View the source code of the request here: <a href="script.js">script.js</a></p>
+                <div>
+                    <button class="link-button" onclick="window.location.href='/webui-one';">Return to Cisco NSO WebUI</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
