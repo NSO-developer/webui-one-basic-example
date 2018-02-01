@@ -53,3 +53,35 @@ h1 {
 .content {
     margin: 4rem 2rem;
 }
+.flex {
+    display: flex;
+}
+.title-left {
+    margin-left: auto;
+}
+.menu-div {
+    margin: 0.5rem;
+    font-size: 13.8px;
+    font-family: CiscoSans;
+    color: rgb(4, 159, 217);
+    z-index: 2;
+}
+#menu-holder {
+    border: 1px solid rgb(255, 255, 255);
+    outline: none;
+    top: 9px;
+    padding: 0;
+    background-color: white;
+}
+.top-div {
+    margin: 5px;
+}
+#logout-div {
+    margin: 14px 5px 5px 5px;
+    display: none;
+}
+.menu-text {
+    cursor: pointer;
+    padding: 8px 6px;
+    white-space: nowrap;
+}

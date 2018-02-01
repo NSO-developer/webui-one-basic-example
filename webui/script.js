@@ -36,9 +36,38 @@ const jsonrpc = (method, params) => {
     });
 };
 
+// show/hide logout menu
+const showLogout = () => { // eslint-disable-line no-unused-vars
+    const element = document.getElementById('logout-div');
+    const style = window.getComputedStyle(element);
+    const disp = style.getPropertyValue('display');
+
+    if (disp === 'block') {
+        document.getElementById('menu-holder').style.border = '1px solid rgb(255, 255, 255)';
+        document.getElementById('logout-div').style.display = 'none';
+    } else {
+        document.getElementById('menu-holder').style.border = '1px solid rgb(4, 159, 217)';
+        document.getElementById('logout-div').style.display = 'block';
+    }
+};
+
+// logout and direct browser to login page
+const logout = () => { // eslint-disable-line no-unused-vars
+    jsonrpc('logout', {});
+    window.location.href = '/webui-one';
+};
+
 // fetch the system version with the get_system_setting method.
 // Return request promise
 const fetchSystemVersion = () => jsonrpc('get_system_setting', { operation: 'version' });
+
+// fetch the current user with the get_system_setting method.
+// Return request promise
+const getCurrentUser = () => {
+    jsonrpc('get_system_setting', { operation: 'user' }).then((username) => {
+        document.getElementById('username').textContent = username;
+    });
+};
 
 // update the systemVersion element when the window has loaded.
 window.addEventListener('load', () => {
@@ -46,4 +75,5 @@ window.addEventListener('load', () => {
         const element = document.getElementById('systemVersion');
         element.innerText = version;
     });
+    getCurrentUser();
 });
