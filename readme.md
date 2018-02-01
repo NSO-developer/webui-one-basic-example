@@ -2,9 +2,10 @@
 
 ## About
 This NSO package contain a simple webui that demonstrates how the JSON-RPC API can be utilized.
-Show the running NSO Version.
-Show a similar menu as the Cisco Short Cut Menu.
-Show a similar logout menu as Cisco webui one.
+* Show the running NSO Version.
+* Show a similar menu as the Cisco Short Cut Menu.
+* Show a similar logout menu as Cisco webui one.
+
 All the similarity to the Cisco Webui is copied and separated from the Ciso Webui not in any way linked.
 
 ## Package contents
