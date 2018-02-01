@@ -57,6 +57,23 @@ const logout = () => { // eslint-disable-line no-unused-vars
     window.location.href = '/webui-one';
 };
 
+// Show/Hide short cut menu
+const menuHide = () => { // eslint-disable-line no-unused-vars
+    const element = document.getElementById('sc-menu');
+    const style = window.getComputedStyle(element);
+    const bottom = style.getPropertyValue('bottom');
+
+    if (bottom === '0px') {
+        document.getElementById('sc-menu').style.bottom = '-7rem';
+        document.getElementById('button').style.transform = 'none';
+        document.getElementById('button-div').style.margin = '-2.65rem 0 0 0';
+    } else {
+        document.getElementById('sc-menu').style.bottom = '0';
+        document.getElementById('button').style.transform = 'rotate(-180deg)';
+        document.getElementById('button-div').style.margin = '4.35rem 0 0 0';
+    }
+};
+
 // fetch the system version with the get_system_setting method.
 // Return request promise
 const fetchSystemVersion = () => jsonrpc('get_system_setting', { operation: 'version' });

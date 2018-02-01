@@ -1,7 +1,12 @@
+@font-face {
+  font-family: "CiscoSans";
+  src: url(/dist/asset-f981fb.ttf) format("truetype");
+}
 body {
     font-family: Helvetica, sans-serif;
     margin: 0px;
     width: 100%;
+    background-color: rgb(242, 242, 242);
 }
 h1 {
     font-size: 1.5rem;
@@ -60,8 +65,8 @@ h1 {
     margin-left: auto;
 }
 .menu-div {
-    margin: 0.5rem;
-    font-size: 13.8px;
+    margin: 0.3rem;
+    font-size: 12.8px;
     font-family: CiscoSans;
     color: rgb(4, 159, 217);
     z-index: 2;
@@ -84,4 +89,62 @@ h1 {
     cursor: pointer;
     padding: 8px 6px;
     white-space: nowrap;
+}
+#sc-menu {
+    position: fixed;
+    pointer-events: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: bottom 0.3s;
+}
+.sc-item {
+    position: relative;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: solid 0.2rem rgb(255, 255, 255);
+    color: rgb(4, 159, 217);
+    pointer-events: auto;
+    font-family: CiscoSans;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+    text-decoration: none;
+    overflow: hidden;
+    line-height: 1;
+}
+.sc-letter {
+    padding: 0.1rem;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.sc-text {
+    position: absolute;
+    bottom: 0;
+    padding: 0.3rem;
+    font-size: 0.8rem;
+}
+#button-div {
+    position: relative;
+    margin: 4.35rem 0 0 0;
+    transition: margin 0.3s;
+}
+#button {
+    position: relative;
+    width: 2rem;
+    height: 1rem;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    color: rgb(4, 159, 217);
+    pointer-events: auto;
+    font-family: CiscoSans;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px 2px;
+    text-decoration: none;
+    overflow: hidden;
+    font-size: 1rem;
+    transition: transform 0.3s;
+    transform: rotate(-180deg);
 }
