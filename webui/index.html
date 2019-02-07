@@ -1,64 +1,71 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">    
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="script.js"></script>
-        <title>Example package with a simple webui</title>
-    </head>
-    <body>
-        <div>
-            <div class="header">
-                <div class="header-inner">
-                    <a href="/webui-one/" class="header-link">
-                        <img src="cisco.svg" alt="Cisco" class="logo" style="">
-                    </a>
-                    <div class="title">
-                        System version <span id="systemVersion"></span> Example Package Application
-                    </div>
-                    <div class="flex title-left">
-                        <div class="menu-div">
-                            <div id="menu-holder">
-                                <div class="top-div" onclick="showLogout();">
-                                    <a class="menu-text"><span id="username">user</span> ▾</a>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+    <title>Example package with a simple webui</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            <div id="inner">
+                <a class="logo-link" href="/webui-one/">
+                    <img src="cisco.svg" alt="Cisco" class="logo">
+                </a>
+                <div id="headerTitle">
+                    <div class="title">Example Package Application</div>
+                    <div class="version">NSO Version <span id="systemVersion"></span></div>
+                </div>
+                <div id="headermenu">
+                    <div id="headerUser">
+                        <div class="dropdown-wrapper">
+                            <span id="showLogout" onclick="showLogout();"><span id="username"></span> ▾</span>
+                            <div class="dropdown" id="logout-div">
+                                <button class="overlay" onclick="showLogout();"></button>
+                                <div class="arrow-shadow"></div>
+                                <div class="dropdown-content">
+                                    <a id="dropdown-content-item-log" role="button" onclick="logout();">log out</a>
                                 </div>
-                                <div id="logout-div" onclick="logout();">
-                                    <a class="menu-text">logout</a>
-                                </div>
+                                <div class="arrow"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="content">
-                <h1>Example package with a simple webui</h1>
-                <p>This is an example package with an example request. 
-                   The version number in the header is fetched from NSO via the JSON-RPC API.</p>
-                <p>More information about the NSO JSON-RPC API is available in the NSO userguide.</p>
-                <p>View the source code of the request here: <a href="script.js">script.js</a></p>
-                <div>
-                    <button class="link-button" onclick="window.location.href='/webui-one';">Return to Cisco NSO WebUI</button>
-                </div>
-            </div>
-            <div class="footer">
-                <div id="sc-menu">
-                    <a class="sc-item" href="/webui-one/CommitManager">
-                        <div class="sc-letter">C</div>
-                        <div class="sc-text">Commit manager</div>
-                    </a>
-                    <a class="sc-item" href="/webui-one/ModelBrowser">
-                        <div class="sc-letter">M</div>
-                        <div class="sc-text">Model browser</div>
-                    </a>
-                    <a class="sc-item" href="http://www.cisco.com">
-                        <div class="sc-letter">W</div>
-                        <div class="sc-text">Cisco Web</div>
-                    </a>
-                    <div id="button-div" onclick="menuHide();">
-                        <button id="button">⌃</button>
-                    </div>
-                </div>
+            <div id="header-shadow"></div>
+        </div>
+        <div class="content">
+            <h1>Example package with a simple webui</h1>
+            <p>This is an example package with an example request.
+                The version number in the header is fetched from NSO via the JSON-RPC API.</p>
+            <p>More information about the NSO JSON-RPC API is available in the NSO userguide.</p>
+            <p>View the source code of the request here: <a href="script.js">script.js</a></p>
+            <p>
+                <a href="/webui-one">
+                    Return to Cisco NSO WebUI
+                </a>
+            </p>
+        </div>
+        <div class="footer">
+            <div id="sc-menu">
+                <a href="/webui-one/CommitManager" class="sc-item">
+                    <div class="sc-letter">C</div>
+                    <div class="sc-text">Commit manager</div>
+                </a>
+                <a href="/webui-one/ConfigurationEditor" class="sc-item">
+                    <div class="sc-letter">E</div>
+                    <div class="sc-text">Configuration editor</div>
+                </a>
+                <a href="http://www.cisco.com" class="sc-item">
+                    <div class="sc-letter">W</div>
+                    <div class="sc-text">Cisco Web</div>
+                </a>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
