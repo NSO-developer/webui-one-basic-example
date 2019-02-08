@@ -24,11 +24,8 @@ Put the package contents in the NSO `/packages/webui-one-basic-example` folder.
 __Reload packages using cli or webui.__
 * CLI: start ncs_cli
   * run _request packages reload_
-* WEBUI: In your browser go to http://NSO-HOST/webui-one/ConfigurationEditor/ncs:packages/reload
-  * Click "Run reload action"
-
-__You have to restart NSO__
-* Restart NSO
+* WEBUI: In your browser go to http://NSO-HOST/webui-one/ConfigurationEditor
+  * Click "Reload" on packages
 
 The example-webui should now be accessible from the ApplicationHUB, _nso-host/webui-one/_ or directly at _nso-host/custom/webui-one-basic-example_
 
