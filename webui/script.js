@@ -3,10 +3,15 @@
 // jsonrpc request counter, each request should have an unique id.
 let id = 0;
 
-// Return JSON representation of method and param
+// Return jsonrpc json representation of method and param
 const newRequest = (method, params) => {
     id += 1;
-    return JSON.stringify({ jsonrpc: '2.0', id, method, params });
+    return JSON.stringify({
+        jsonrpc: '2.0',
+        id,
+        method,
+        params
+    });
 };
 
 // JSON-RPC helper
@@ -36,52 +41,24 @@ const jsonrpc = (method, params) => {
     });
 };
 
-// show/hide logout menu
-const showLogout = () => { // eslint-disable-line no-unused-vars
-    const element = document.getElementById('logout-div');
-    const style = window.getComputedStyle(element);
-    const disp = style.getPropertyValue('display');
-
-    if (disp === 'block') {
-        document.getElementById('menu-holder').style.border = '1px solid rgb(255, 255, 255)';
-        document.getElementById('logout-div').style.display = 'none';
-    } else {
-        document.getElementById('menu-holder').style.border = '1px solid rgb(4, 159, 217)';
-        document.getElementById('logout-div').style.display = 'block';
-    }
-};
-
 // logout and direct browser to login page
-const logout = () => { // eslint-disable-line no-unused-vars
+const logout = () => {
     jsonrpc('logout', {});
     window.location.href = '/webui-one';
 };
 
-// Show/Hide short cut menu
-const menuHide = () => { // eslint-disable-line no-unused-vars
-    const element = document.getElementById('sc-menu');
-    const style = window.getComputedStyle(element);
-    const bottom = style.getPropertyValue('bottom');
-
-    if (bottom === '0px') {
-        document.getElementById('sc-menu').style.bottom = '-7rem';
-        document.getElementById('button').style.transform = 'none';
-        document.getElementById('button-div').style.margin = '-2.65rem 0 0 0';
-    } else {
-        document.getElementById('sc-menu').style.bottom = '0';
-        document.getElementById('button').style.transform = 'rotate(-180deg)';
-        document.getElementById('button-div').style.margin = '4.35rem 0 0 0';
-    }
-};
-
 // fetch the system version with the get_system_setting method.
 // Return request promise
-const fetchSystemVersion = () => jsonrpc('get_system_setting', { operation: 'version' });
+const fetchSystemVersion = () => jsonrpc('get_system_setting', {
+    operation: 'version'
+});
 
 // fetch the current user with the get_system_setting method.
 // Return request promise
 const getCurrentUser = () => {
-    jsonrpc('get_system_setting', { operation: 'user' }).then((username) => {
+    jsonrpc('get_system_setting', {
+        operation: 'user'
+    }).then((username) => {
         document.getElementById('username').textContent = username;
     });
 };
@@ -94,3 +71,12 @@ window.addEventListener('load', () => {
     });
     getCurrentUser();
 });
+
+
+// show/hide logout menu
+const showLogout = () => {
+    const element = document.getElementById('logout-div');
+    const style = window.getComputedStyle(element);
+    const disp = style.getPropertyValue('display');
+    element.style.display = disp === 'block' ? 'none' : 'block';
+};
