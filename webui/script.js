@@ -63,20 +63,23 @@ const getCurrentUser = () => {
     });
 };
 
-// update the systemVersion element when the window has loaded.
+// show/hide logout menu
+const toggleLogoutVisibility = () => {
+    const element = document.getElementById('logout-div');
+    const style = window.getComputedStyle(element);
+    const disp = style.getPropertyValue('display');
+    element.style.display = disp === 'block' ? 'none' : 'block';
+};
+
 window.addEventListener('load', () => {
+    document.querySelector('#showLogout').addEventListener('click', toggleLogoutVisibility);
+    document.querySelector('.overlay').addEventListener('click', toggleLogoutVisibility);
+    document.querySelector('#dropdown-content-item-log').addEventListener('click', logout);
+
+    // update the systemVersion element when the window has loaded.
     fetchSystemVersion().then((version) => {
         const element = document.getElementById('systemVersion');
         element.innerText = version;
     });
     getCurrentUser();
 });
-
-
-// show/hide logout menu
-const showLogout = () => {
-    const element = document.getElementById('logout-div');
-    const style = window.getComputedStyle(element);
-    const disp = style.getPropertyValue('display');
-    element.style.display = disp === 'block' ? 'none' : 'block';
-};
