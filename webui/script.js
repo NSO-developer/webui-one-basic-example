@@ -43,8 +43,9 @@ const jsonrpc = (method, params) => {
 
 // logout and direct browser to login page
 const logout = () => {
-    jsonrpc('logout', {});
-    window.location.href = '/webui-one';
+    jsonrpc('logout', {}).then(() => {
+        window.location.reload();
+    });
 };
 
 // fetch the system version with the get_system_setting method.
